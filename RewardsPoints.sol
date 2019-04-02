@@ -263,10 +263,8 @@ contract RewardsPoints {
         // 4. Emit event
         uint userId = addrToUserId[msg.sender];
         require(users[userId].merchantToEarnedPts[_mId] >= _points);
-
         users[userId].merchantToEarnedPts[_mId]=users[userId].merchantToEarnedPts[_mId].sub(_points);
         users[userId].merchantToRedeemedPts[_mId]=users[userId].merchantToRedeemedPts[_mId].add(_points);
-
         users[userId].totalEarnedPoints=users[userId].totalEarnedPoints.sub(_points);
         users[userId].totalReedemedPoints=users[userId].totalReedemedPoints.add(_points);
         emit RedeemedPoints(msg.sender, _mId, _points);
